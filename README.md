@@ -6,9 +6,9 @@ It's pretty simple: you define a source and a destination - and a callback which
 
 Take a look at [`tileshrink`](https://github.com/fuwaneko/node-protobuf) to see what you could build with it!
 
-## Requirements / How to install it?
+## Requirements
 
-* `tilegrinder` is using the native protobuf wrapper library [`node-protobuf`](https://github.com/fuwaneko/node-protobuf) for its magic
+* `tilegrinder` uses the native protobuf wrapper library [`node-protobuf`](https://github.com/fuwaneko/node-protobuf) for its magic
 
 * To let it build during `npm install`, take care of following things:
 
@@ -17,6 +17,12 @@ Take a look at [`tileshrink`](https://github.com/fuwaneko/node-protobuf) to see 
   * OSX: Use [`homebrew`](http://brew.sh/) to install `protobuf` with `brew install pkg-config` and `brew install --devel protobuf`
 
   * Windows: hard to compile.. sorry, mate!
+
+## How to install it?
+
+* Just install it into your project folder with
+
+    `npm install --save tilegrinder`
 
 ## How to code it?
 
