@@ -2,7 +2,7 @@
   "name": "tilegrinder",
   "version": "0.1.0",
   "description": "Reduce and simplify Verctor- and MBTiles on the fly",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "node main",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
     "mbtiles",
     "mbtile",
     "vectortile",
-    "vectortiles"
+    "vectortiles",
     "helper"
   ],
   "author": "Michael Straßburger <codepoet@cpan.org>",

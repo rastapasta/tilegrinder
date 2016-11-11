@@ -1,6 +1,78 @@
 # tilegrinder
 
-A highly optimized MBTiles to MBTiles/file converter node.js library with an easy interface to write your own processor without caring about the decoding/encoding/storing side of life.
+A handy library in case you ever want to apply some logic to all [vector tiles](https://github.com/mapbox/vector-tile-spec/tree/master/2.1) in an [MBTiles](https://www.mapbox.com/help/an-open-platform/#mbtiles) file without having to worry about how to pull, decode, alter, encode and store them again.
+
+It's pretty simple: you define a source and a destination - and a callback which get's called with a serialized tile object as soon as the async grinder parsed another tile. The library transparently takes care of compression, protobuf and geometry de-/encoding and rebundling of the altered data into a new MBTiles.
+
+Take a look at [`tileshrink`](https://github.com/fuwaneko/node-protobuf) to see what you could build with it!
+
+## Requirements / How to install it?
+
+* `tilegrinder` is using the native protobuf wrapper library [`node-protobuf`](https://github.com/fuwaneko/node-protobuf) for its magic
+
+* To let it build during `npm install`, take care of following things:
+
+  * Linux: libprotobuf must be present (`apt-get install build-essential pkg-config libprotobuf-dev`)
+
+  * OSX: Use [`homebrew`](http://brew.sh/) to install `protobuf` with `brew install pkg-config` and `brew install --devel protobuf`
+
+  * Windows: hard to compile.. sorry, mate!
+
+## How to code it?
+
+Following example will
+
+* create a new MBTiles file `simple.mbtiles` containing the tiles of the first four zoom levels of  `planet.mbtiles`
+
+* only the `water`, `admin` and `road` layers are kept
+
+* while all points get moved by an offset of 256
+
+```js
+"use strict";
+const TileGrinder = require('tilegrinder');
+
+let grinder = new TileGrinder({maxZoom: 4});
+
+grinder.grind("planet.mbtiles", "simple.mbtiles", tile => {
+
+  // Only keep the road, water and admin layers
+  tile.layers = tile.layers.filter(layer =>
+    layer.name === "water" || layer.name === "admin" || layer.name === "road"
+  );
+
+  // Move each point a bit around
+  tile.layers.forEach(layer => {
+    layer.features.forEach(feature => {
+      feature.geometry.forEach(geometry => {
+        geometry.forEach(point => {
+          point.x += 256;
+          point.y += 256;
+        });
+      });
+    })
+  });
+
+});
+```
+
+Which will generate following output:
+
+```bash
+bash$ node example.js
+[>] starting to grind
+[>] 38% less data in zoom 1, x: 0 y: 1
+[>] 39% less data in zoom 1, x: 1 y: 1
+[>] 20% less data in zoom 1, x: 0 y: 0
+.......
+[>] 16% less data in zoom 2, x: 2 y: 1
+[>] 33% less data in zoom 4, x: 8 y: 5
+[+] waiting for workers to finish...
+[+] finishing database
+[+] grinding done!
+[>] saved 35% of storage
+bash$
+```
 
 ## License
 #### The MIT License (MIT)
