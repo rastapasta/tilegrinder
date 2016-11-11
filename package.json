@@ -1,0 +1,30 @@
+{
+  "name": "tilegrinder",
+  "version": "0.1.0",
+  "description": "Reduce and simplify Verctor- and MBTiles on the fly",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rastapasta/tilegrinder.git"
+  },
+  "keywords": [
+    "mbtiles",
+    "mbtile",
+    "vectortile",
+    "vectortiles"
+    "helper"
+  ],
+  "author": "Michael Straßburger <codepoet@cpan.org>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "coffee-script": "^1.11.1",
+    "mbtiles": "^0.9.0",
+    "node-protobuf": "^1.4.1",
+    "split": "^1.0.0"
+  }
+}
