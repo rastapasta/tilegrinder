@@ -96,7 +96,7 @@ module.exports = class TileGrinder
   _waitForWrites: ->
     return unless @config.output is "mbtiles"
 
-    console.log "[+] finishing database"
+    @_log "[+] finishing database"
     new Promise (resolve, reject) =>
       @target.stopWriting (err) =>
         reject err if err

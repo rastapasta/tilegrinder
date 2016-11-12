@@ -4,7 +4,7 @@ A handy library in case you ever want to apply some logic to all [vector tiles](
 
 It's pretty simple: you define a source and a destination - and a callback which get's called with a serialized tile object as soon as the async grinder parsed another tile. The library transparently takes care of compression, protobuf and geometry de-/encoding and rebundling of the altered data into a new MBTiles.
 
-Take a look at [`tileshrink`](https://github.com/fuwaneko/node-protobuf) to see what you could build with it!
+Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see what you could build with it!
 
 ## Requirements
 

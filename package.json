@@ -1,10 +1,10 @@
 {
   "name": "tilegrinder",
   "version": "0.1.0",
-  "description": "Reduce and simplify Verctor- and MBTiles on the fly",
+  "description": "Easily alter all vector tiles in an MBTiles file",
   "main": "index.js",
   "scripts": {
-    "start": "node main",
+    "start": "echo \"Error: sorry, this is not a standalone app\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
