@@ -1,3 +1,3 @@
 // A quick and dirty coffee wrapper ☕
 require('coffee-script/register');
-module.exports = require('./src/TileGrinder');
+module.exports = require(__dirname+'/src/TileGrinder');
