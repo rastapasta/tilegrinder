@@ -20,9 +20,7 @@ module.exports = class TileGrinder
   config:
     debug: true
     output: "mbtiles"
-
     maxZoom: 14
-    copyAboveZoom: null
 
   queueSize: 64
 
@@ -38,7 +36,7 @@ module.exports = class TileGrinder
     @protobuf = new Protobuf fs.readFileSync __dirname+"/../proto/vector_tile.desc"
 
   grind: (source, @destination, @callback) ->
-    @_log "[>] starting to grind"
+    @_log "[>] starting to grind #{source} into #{@destination}"
 
     @_mustExist source
     .then => @_loadMBTiles source
@@ -74,13 +72,8 @@ module.exports = class TileGrinder
           stream.pause()
           paused = true
 
-        promise = if @config.copyAboveZoom and z >= @config.copyAboveZoom
-          @_loadTile z, x, y
-          .then (buffer) => @_storeTile z, x, y, buffer
-        else
-          @_processTile z, x, y
-
-        promise.finally =>
+        @_processTile z, x, y
+        .finally =>
           queueSpots++
           if paused and queueSpots > 0
             stream.resume()
@@ -136,15 +129,15 @@ module.exports = class TileGrinder
     @_loadTile z, x, y
     .then (buffer) => @_unzipIfNeeded original = buffer
     .then (buffer) => @_decodeTile buffer
-    .then (tile) => @_callback tile
+    .then (tile) => @_callback tile, z, x, y
     .then (tile) => @_encodeTile tile
     .then (buffer) => @_gzip buffer
     .then (buffer) =>
       @_trackStats z, x, y, original, buffer
       @_storeTile z, x, y, buffer
 
-  _callback: (tile) ->
-    @callback tile
+  _callback: (tile, z, x, y) ->
+    @callback tile, z, x, y
     tile
 
   _storeTile: (z, x, y, buffer) ->
