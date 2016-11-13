@@ -1,4 +1,7 @@
 # tilegrinder
+[![npm version](https://badge.fury.io/js/tilegrinder.svg)](https://badge.fury.io/js/tilegrinder)
+![dependencies](https://david-dm.org/rastapasta/tilegrinder.svg)
+![license](https://img.shields.io/github/license/rastapasta/tilegrinder.svg)
 
 A handy library in case you ever want to apply some logic to all [vector tiles](https://github.com/mapbox/vector-tile-spec/tree/master/2.1) in an [MBTiles](https://www.mapbox.com/help/an-open-platform/#mbtiles) file without having to worry about how to pull, decode, alter, encode and store them again.
 
