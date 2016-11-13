@@ -1,6 +1,6 @@
 {
   "name": "tilegrinder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Easily alter all vector tiles in an MBTiles file",
   "main": "index.js",
   "scripts": {
