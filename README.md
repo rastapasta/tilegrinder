@@ -3,11 +3,11 @@
 ![dependencies](https://david-dm.org/rastapasta/tilegrinder.svg)
 ![license](https://img.shields.io/github/license/rastapasta/tilegrinder.svg)
 
-A handy library in case you ever want to apply some logic to all [vector tiles](https://github.com/mapbox/vector-tile-spec/tree/master/2.1) in an [MBTiles](https://www.mapbox.com/help/an-open-platform/#mbtiles) file without having to worry about how to pull, decode, alter, encode and store them again.
+A handy library in case you ever want to apply some logic to all os some [vector tiles](https://github.com/mapbox/vector-tile-spec/tree/master/2.1) in an [MBTiles](https://www.mapbox.com/help/an-open-platform/#mbtiles) file without having to worry about how to pull, decode, alter, encode and store them again.
 
 It's pretty simple: you define a source and a destination - and a callback which get's called with a serialized tile object as soon as the async grinder parsed another tile. The library transparently takes care of compression, protobuf and geometry de-/encoding and rebundling of the altered data into a new MBTiles.
 
-Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see what you could build with it!
+Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see what you can build with it!
 
 ## Requirements
 
@@ -15,11 +15,11 @@ Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see w
 
 * To let it build during `npm install`, take care of following things:
 
-  * Linux: libprotobuf must be present (`apt-get install build-essential pkg-config libprotobuf-dev`)
+  * Linux: `libprotobuf` must be present (`apt-get install build-essential pkg-config libprotobuf-dev`)
 
-  * OSX: Use [`homebrew`](http://brew.sh/) to install `protobuf` with `brew install pkg-config` and `brew install --devel protobuf`
+  * OSX: Use [`homebrew`](http://brew.sh/) to install `protobuf` with `brew install pkg-config protobuf`
 
-  * Windows: hard to compile.. sorry, mate!
+  * Windows: `node-protobuf` includes a pre-compiled version for 64bit systems
 
 ## How to install it?
 
@@ -31,7 +31,7 @@ Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see w
 
 Following example will
 
-* create a new MBTiles file `simple.mbtiles` containing the tiles of the first four zoom levels of  `planet.mbtiles`
+* create a new MBTiles file `simple.mbtiles` containing the tiles of the first 4 zoom levels of  `planet.mbtiles`
 
 * only the `water`, `admin` and `road` layers are kept
 
