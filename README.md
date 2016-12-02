@@ -5,7 +5,7 @@
 
 A handy library in case you ever want to apply some logic to all/some [vector tiles](https://github.com/mapbox/vector-tile-spec/tree/master/2.1) in an [MBTiles](https://www.mapbox.com/help/an-open-platform/#mbtiles) file without having to worry about how to pull, decode, alter, encode and store them again.
 
-It's pretty simple: you define a source and a destination - and a callback which get's called with a serialized tile object as soon as the async grinder parsed another tile. The library transparently takes care of compression, protobuf and geometry de-/encoding and rebundling of the altered data into a new MBTiles.
+It's pretty simple: you define a source and a destination - and a callback which gets called with a deserialized tile object as soon as the async grinder parsed another tile. The library transparently takes care of compression, protobuf and geometry de-/encoding and rebundling of the altered data into a new MBTiles.
 
 Take a look at [`tileshrink`](https://github.com/rastapasta/tileshrink) to see what you can build with it!
 
