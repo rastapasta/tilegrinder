@@ -7,7 +7,7 @@
   and store them again.
 ###
 
-MBTiles = require 'mbtiles'
+MBTiles = require '@mapbox/mbtiles'
 Protobuf = require 'node-protobuf'
 Promise = require 'bluebird'
 split = require 'split'
