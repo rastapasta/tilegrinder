@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.4.6",
-    "coffee-script": "^1.11.1",
+    "coffeescript": "^2.3.2",
     "@mapbox/mbtiles": "^0.10.0",
     "node-protobuf": "^1.4.1",
     "split": "^1.0.0"

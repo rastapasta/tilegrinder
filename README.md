@@ -38,17 +38,15 @@ Following example will
 * while all points get moved by an offset of 256
 
 ```js
-"use strict";
-const TileGrinder = require('tilegrinder');
-
-let grinder = new TileGrinder({maxZoom: 4});
+const TileGrinder = require('tilegrinder')
+    , grinder = new TileGrinder({maxZoom: 4})
 
 grinder.grind("planet.mbtiles", "simple.mbtiles", tile => {
 
   // Only keep the road, water and admin layers
   tile.layers = tile.layers.filter(layer =>
     layer.name === "water" || layer.name === "admin" || layer.name === "road"
-  );
+  )
 
   // Move each point a bit around
   tile.layers.forEach(layer => {
@@ -57,12 +55,12 @@ grinder.grind("planet.mbtiles", "simple.mbtiles", tile => {
         geometry.forEach(point => {
           point.x += 256;
           point.y += 256;
-        });
-      });
+        })
+      })
     })
-  });
+  })
 
-});
+})
 ```
 
 Which will generate following output:
@@ -85,7 +83,7 @@ bash$
 
 ## License
 #### The MIT License (MIT)
-Copyright (c) 2016 Michael Straßburger
+Copyright (c) 2019 Michael Straßburger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
