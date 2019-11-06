@@ -1,5 +1,5 @@
 # tilegrinder
-[![npm version](https://badge.fury.io/js/tilegrinder.svg)](https://badge.fury.io/js/tilegrinder)
+[![npm version](https://badge.fury.io/js/tilegrinder.svg)](https://badge.fury.io/js/tilegrinder) [![Greenkeeper badge](https://badges.greenkeeper.io/rastapasta/tilegrinder.svg)](https://greenkeeper.io/)
 ![dependencies](https://david-dm.org/rastapasta/tilegrinder.svg)
 ![license](https://img.shields.io/github/license/rastapasta/tilegrinder.svg)
 
